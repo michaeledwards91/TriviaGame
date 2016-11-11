@@ -17,13 +17,28 @@ var questions = [
 	{	"q": "What color is the sky?",
 		"a": "Blue",
 	 	"possibles": ["Red", "Blue", "Green", "Yellow"],
-	 	"imgRef": "#"},
+	 	"imgRef": "assets/images/blueSky.jpg"},
 
 	{	"q": "What color is the sky at night?",
 		"a": "Black",
 	 	"possibles": ["Red", "Blue", "Black", "Green"],
-	 	"imgRef": "#"}
-]
+	 	"imgRef": "assets/images/blackSky.jpg"},
+
+	{	"q": "What shape has 4 sides?",
+		"a": "Square",
+		"possibles": ["Circle", "Triangle", "Pentagon", "Square"],
+		"imgRef": "assets/images/square.png"},
+
+	{	"q": "Where do fish live?",
+		"a": "Ocean",
+		"possibles": ["Mountains", "Clouds", "Ocean", "Rocks"],
+		"imgRef": "assets/images/fish.jpg"},
+
+	{	"q": "What sound does a dog make?",
+		"a": "Woof",
+		"possibles": ["Woof", "Meow", "Moo", "Bzzz"],
+		"imgRef": "assets/images/dog.jpg"}
+];
 
 var questionIndex = 0;
 var correctAnswer; //will hold questions[questionIndex].a
@@ -58,7 +73,7 @@ function decrementTimer() {
 }
 function userCorrect() {
 	clearInterval(counter);
-	$("#questionText").html("<h2>Correct</h2>");
+	$("#questionText").html("<h3>Correct!</h3>");
 	$("#possibleAnswers").html("<img src="+questions[questionIndex].imgRef+">");
 	questionIndex++;
 	answersCorrect++;
@@ -67,7 +82,7 @@ function userCorrect() {
 }
 function userWrong() {
 	clearInterval(counter);
-	$("#questionText").html("<h2>Wrong! The correct answer was '" + correctAnswer + "'</h2>");
+	$("#questionText").html("<h3>Wrong! The correct answer was '" + correctAnswer + "'</h3>");
 	$("#possibleAnswers").html("<img src="+questions[questionIndex].imgRef+">");
 	questionIndex++;
 	answersWrong++;
@@ -77,7 +92,7 @@ function userWrong() {
 //
 function questionTimeout() {
 	clearInterval(counter);
-	$("#questionText").html("<h2>Time's up! The correct answer was '" + correctAnswer + "'</h2>");
+	$("#questionText").html("<h3>Time's up! The correct answer was '" + correctAnswer + "'</h3>");
 	$("#possibleAnswers").html("<img src="+questions[questionIndex].imgRef+">");
 	questionIndex++;
 	answersTimedOut++;
