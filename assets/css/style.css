@@ -6,4 +6,9 @@ h1 {
 }
 .mainContent {
 	background-color: green;
+	margin-top: 10%;
+}
+li {
+	background-color: white;
+    border: 3px solid;
 }
