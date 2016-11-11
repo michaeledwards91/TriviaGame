@@ -63,3 +63,6 @@ p {
 	text-align: center;
 	margin-top: 60px;
 }
+#questionText {
+	margin-left: 20px;
+}
