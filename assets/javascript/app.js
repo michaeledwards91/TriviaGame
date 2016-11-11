@@ -40,15 +40,14 @@ var questions = [
 		"imgRef": "assets/images/dog.jpg"}
 ];
 
-var questionIndex = 0;
+var questionIndex = 0; //used to access individual question in questions array
 var correctAnswer; //will hold questions[questionIndex].a
-var answerSelection;
-var answersWrong = 0;
+var answersWrong = 0; 
 var answersCorrect = 0;
 var answersTimedOut = 0;
 var secondsRemaining = 30;
-var counter;
-
+var counter; //will hold the setInterval to countdown time remaining
+//hides elements at start of game so only the start button shows
 function initGame() {
 	$(".timer").hide();
 	$(".question").hide();
@@ -56,6 +55,7 @@ function initGame() {
 	$("#playAgainButton").hide();
 	$(".possibleAnswers").html("");
 }
+//resets variables to base values and starts the game again
 function resetGame() {
 	questionIndex = 0;
 	answersCorrect = 0;
@@ -64,6 +64,7 @@ function resetGame() {
 	secondsRemaining = 30;
 	showQuestion();
 }
+//function to pass to set interval, controls our countdown
 function decrementTimer() {
 	secondsRemaining--;
 	$("#countdownNumber").html(secondsRemaining);
@@ -71,6 +72,8 @@ function decrementTimer() {
 		questionTimeout();
 	}
 }
+//when user gets the right answer, replace questions and answers with correct! announcement and relevant image
+//iterates question index and adds 1 to number of answers correct, resets timer countdown variable
 function userCorrect() {
 	clearInterval(counter);
 	$("#questionText").html("<h3>Correct!</h3>");
@@ -99,6 +102,7 @@ function questionTimeout() {
 	secondsRemaining = 30;
 	setTimeout(showQuestion, 4000);
 }
+//hides the timer, replaces question and answers with users stats, shows play again button
 function endGame() {
 	console.log("endGame was called");
 	$(".timer").hide();
